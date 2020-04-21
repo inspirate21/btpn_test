@@ -3,6 +3,7 @@ var express = require('express'),
 	app = express.Router();
 
 module.exports = (function(){
+	app.get('/', require(__dirname+"/controllers/index"));
 
 	app.route('/contact')
 	.get(require(__dirname+"/controllers/contact")._AllContact)
