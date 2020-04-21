@@ -1,0 +1,5378 @@
+{
+	"/dashboard/sales/order" :{
+		"method" : "get",
+		"description" : "Get monthly dashboard sales order",
+		"token" : true,
+		"parameter" : []
+	},
+	"/dashboard/sales/quotation" :{
+		"method" : "get",
+		"description" : "Get monthly dashboard sales quotation",
+		"token" : true,
+		"parameter" : []
+	},
+	"/dashboard/sales/quotation/realization" :{
+		"method" : "get",
+		"description" : "Get monthly dashboard sales quotation realization",
+		"token" : true,
+		"parameter" : []
+	},
+	"/dashboard/sales/income" :{
+		"method" : "get",
+		"description" : "Get monthly dashboard sales income",
+		"token" : true,
+		"parameter" : []
+	},
+	"/dashboard/revenue" :{
+		"method" : "get",
+		"description" : "Get dashboard revenue last 12 days",
+		"token" : true,
+		"parameter" : []
+	},
+	"/dashboard/purchase" :{
+		"method" : "get",
+		"description" : "Get dashboard purchase last 12 days",
+		"token" : true,
+		"parameter" : []
+	},
+	"/dashboard/cash/out" :{
+		"method" : "get",
+		"description" : "Get dashboard cash out last 12 days",
+		"token" : true,
+		"parameter" : []
+	},
+	"/user/login" :{
+		"method" : "post",
+		"description" : "Login to get accessToken",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : false,
+		"parameter" : [{
+			"name" : "username",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's username"
+		},{
+			"name" : "password",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's password"
+		}]
+	},
+	"/user/create" :{
+		"method" : "post",
+		"description" : "Create new user",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : true,
+		"parameter" : [{
+			"name" : "username",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's username"
+		},{
+			"name" : "password",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's password"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's name"
+		},{
+			"name" : "warehouse_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "access_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "User's access id"
+		}]
+	},
+	"/user/detail" :{
+		"method" : "get",
+		"description" : "Get user data",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's ID"
+		}]
+	},
+	"/user/reset_password" :{
+		"method" : "put",
+		"description" : "Reset user's password to default",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : true,
+		"parameter" : [{
+			"name" : "user_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "User's id"
+		}]
+	},
+	"/user/notification" :{
+		"method" : "get",
+		"description" : "Get user notification list",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Limit of data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Offset of data"
+		}]
+	},
+	"/user/notification/unread" :{
+		"method" : "get",
+		"description" : "Get counter user unread notification",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : true,
+		"parameter" : []
+	},
+	"/user/notification/read" :{
+		"method" : "post",
+		"description" : "Read user notification",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"description" : "Notification ID"
+		}]
+	},
+	"/user/update" :{
+		"method" : "put",
+		"description" : "Update user's data",
+		"content_type" : "x-www-form-urlencoded",
+		"token" : true,
+		"parameter" : [{
+			"name" : "user_id",
+			"type" : "integer",
+			"description" : "User's id (default is requester user_id)"
+		},{
+			"name" : "username",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's username"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's name"
+		},{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"description" : "Warehouse ID"
+		},{
+			"name" : "access_id",
+			"type" : "integer",
+			"description" : "User's access id"
+		}]
+	},
+	"/user/list" :{
+		"method" : "get",
+		"description" : "Get list of user data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "name",
+			"type" : "string",
+			"description" : "To search user by user's name"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/user/update_password" :{
+		"method" : "put",
+		"content_type" : "x-www-form-urlencoded",
+		"description" : "Update user's password",
+		"token" : true,
+		"parameter" : [{
+			"name" : "password",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's new password"
+		}]
+	},
+	"/user/update_profile" :{
+		"method" : "put",
+		"content_type" : "x-www-form-urlencoded",
+		"description" : "Update user's profile (fullname or password)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "fullname",
+			"type" : "string",
+			"required" : true,
+			"description" : "User's fullname"
+		},{
+			"name" : "password",
+			"type" : "string",
+			"required" : false,
+			"description" : "User's new password"
+		}]
+	},
+	"/access/list" :{
+		"method" : "get",
+		"description" : "Get list access level",
+		"token" : true,
+		"parameter" : []
+	},
+	"/region/province" :{
+		"method" : "get",
+		"description" : "Get list of indonesian province",
+		"token" : false,
+		"parameter" : []
+	},
+	"/region/city" :{
+		"method" : "get",
+		"description" : "Get list of indonesian city",
+		"token" : false,
+		"parameter" : [{
+			"name" : "province_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Province ID"
+		}]
+	},
+	"/region/district" :{
+		"method" : "get",
+		"description" : "Get list of indonesian district",
+		"token" : false,
+		"parameter" : [{
+			"name" : "city_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "City ID"
+		}]
+	},
+	"/region/urban" :{
+		"method" : "get",
+		"description" : "Get list of indonesian urban",
+		"token" : false,
+		"parameter" : [{
+			"name" : "district_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "District ID"
+		}]
+	},
+	"/customer/type" :{
+		"method" : "get",
+		"description" : "Get customer type",
+		"token" : true,
+		"parameter" : []
+	},
+	"/customer/region" :{
+		"method" : "get",
+		"description" : "Get customer region",
+		"token" : true,
+		"parameter" : []
+	},
+	"/customer/list" : {
+		"method" : "get",
+		"description" : "Get list of customer",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "customer_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Search customer by customer id"
+		},{
+			"name" : "customer_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Search customer by customer name"
+		}]
+	},
+	"/customer/all" : {
+		"method" : "get",
+		"description" : "Get all customer data",
+		"token" : true,
+		"parameter" : []
+	},
+	"/customer/detail" : {
+		"method" : "get",
+		"description" : "Get detail of customer",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer's ID"
+		}]
+	},
+	"/customer/invoice" : {
+		"method" : "get",
+		"description" : "Get unpaid customer invoice list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer's ID"
+		}]
+	},
+	"/customer/address" : {
+		"method" : "get",
+		"description" : "Get customer address list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer's ID"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/customer/create" : {
+		"method" : "post",
+		"content_type" : "x-www-form-urlencoded",
+		"description" : "Create new customer",
+		"token" : true,
+		"parameter" : [{
+			"name" : "type",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer company type"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer's name"
+		},{
+			"name" : "npwp",
+			"type" : "stirng",
+			"required" : true,
+			"description" : "Customer's npwp number"
+		},{
+			"name" : "address",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Customer's address in array of object => {\"address\":<value>, \"province\":<value>, \"city\":<value>, \"district\":<value>, , \"urban\":<value>, , \"postal_code\":<value>}"
+		},{
+			"name" : "phone",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer's phone in array of object => {\"phone\":<value>, \"contact_person\":<value>}"
+		},{
+			"name" : "fax",
+			"type" : "string",
+			"required" : false,
+			"description" : "Customer's fax number"
+		},{
+			"name" : "parent",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Customer's parent ID"
+		},{
+			"name" : "credit",
+			"type" : "boolean",
+			"required" : true,
+			"description" : "Customer's credit status"
+		},{
+			"name" : "credit_limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Customer's credit limit"
+		},{
+			"name" : "charge_day",
+			"type" : "Array",
+			"required" : false,
+			"description" : "Array of customer's charge day (required if credit value = 1)"
+		},{
+			"name" : "pay_day",
+			"type" : "Array",
+			"required" : false,
+			"description" : "Array of customer's paying day (required if credit value = 1)"
+		}]
+	},
+	"/customer/update" : {
+		"method" : "put",
+		"content_type" : "x-www-form-urlencoded",
+		"description" : "Update customer's data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer's ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer's name"
+		},{
+			"name" : "npwp",
+			"type" : "stirng",
+			"required" : true,
+			"description" : "Customer's npwp number"
+		},{
+			"name" : "address",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Customer's address in array of object => {\"address\":<value>, \"city\":<value>}"
+		},{
+			"name" : "phone",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer's phone in array of object => {\"phone\":<value>, \"contact_person\":<value>}"
+		},{
+			"name" : "fax",
+			"type" : "string",
+			"required" : false,
+			"description" : "Customer's fax number"
+		},{
+			"name" : "credit",
+			"type" : "boolean",
+			"required" : true,
+			"description" : "Customer's credit status"
+		},{
+			"name" : "credit_limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Customer's credit limit"
+		},{
+			"name" : "charge_day",
+			"type" : "string",
+			"required" : false,
+			"description" : "Customer's charge day (required if credit value = 1)"
+		},{
+			"name" : "pay_day",
+			"type" : "string",
+			"required" : false,
+			"description" : "Customer's paying day (required if credit value = 1)"
+		}]
+	},
+	"/customer/delete" : {
+		"method" : "delete",
+		"content_type" : "x-www-form-urlencoded",
+		"description" : "Delete customer's data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer's ID"
+		}]
+	},
+	"/supplier/all" : {
+		"method" : "get",
+		"description" : "Get all of supplier",
+		"token" : true,
+		"parameter" : []
+	},
+	"/supplier/type" :{
+		"method" : "get",
+		"content_type" : "x-www-form-urlencoded",
+		"description" : "Get supplier type",
+		"token" : true,
+		"parameter" : []
+	},
+	"/supplier/list" : {
+		"method" : "get",
+		"description" : "Get list of supplier",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "To search supplier by it's id"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "To search supplier by it's name"
+		}]
+	},
+	"/supplier/detail" : {
+		"method" : "get",
+		"description" : "Get detail supplier",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		}]
+	},
+	"/supplier/invoice" : {
+		"method" : "get",
+		"description" : "Get unpaid supplier invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "supplier",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		}]
+	},
+	"/supplier/create" : {
+		"method" : "post",
+		"description" : "Create new supplier",
+		"token" : true,
+		"parameter" : [{
+			"name" : "type",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier company type"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier's name"
+		},{
+			"name" : "npwp",
+			"type" : "string",
+			"required" : false,
+			"description" : "Supplier's npwp"
+		},{
+			"name" : "address",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier's address"
+		},{
+			"name" : "province",
+			"type" : "string",
+			"required" : false,
+			"description" : "Province of supplier's address"
+		},{
+			"name" : "city",
+			"type" : "string",
+			"required" : false,
+			"description" : "City of supplier's address"
+		},{
+			"name" : "district",
+			"type" : "string",
+			"required" : false,
+			"description" : "District of supplier's address"
+		},{
+			"name" : "urban",
+			"type" : "string",
+			"required" : false,
+			"description" : "Urban of supplier's address"
+		},{
+			"name" : "postal_code",
+			"type" : "string",
+			"required" : false,
+			"description" : "Postal code of supplier's address"
+		},{
+			"name" : "phone",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier's phone number"
+		},{
+			"name" : "fax",
+			"type" : "string",
+			"required" : false,
+			"description" : "Supplier's fax number"
+		},{
+			"name" : "contact_person",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier's contact person name"
+		}]
+	},
+	"/supplier/update" : {
+		"method" : "put",
+		"description" : "Update supplier data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier's ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier's name"
+		},{
+			"name" : "npwp",
+			"type" : "string",
+			"required" : false,
+			"description" : "Supplier's npwp"
+		},{
+			"name" : "address",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier's address"
+		},{
+			"name" : "city",
+			"type" : "string",
+			"required" : false,
+			"description" : "City of supplier's address"
+		},{
+			"name" : "phone",
+			"type" : "string",
+			"required" : true,
+			"description" : "Supplier's phone number"
+		},{
+			"name" : "fax",
+			"type" : "string",
+			"required" : false,
+			"description" : "Supplier's fax number"
+		},{
+			"name" : "contact_person",
+			"type" : "string",
+			"required" : false,
+			"description" : "Supplier's contact person name"
+		}]
+	},
+	"/supplier/delete" : {
+		"method" : "delete",
+		"description" : "Delete supplier data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier's ID"
+		}]
+	},
+	"/item/list" : {
+		"method" : "get",
+		"description" : "Get list of items",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 0)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Search by item Code"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Search by item name"
+		},{
+			"name" : "category",
+			"type" : "string",
+			"required" : false,
+			"description" : "Search by item category"
+		},{
+			"name" : "supplier",
+			"type" : "string",
+			"required" : false,
+			"description" : "Search by supplier name"
+		},{
+			"name" : "grade",
+			"type" : "string",
+			"required" : false,
+			"description" : "Search by item grade"
+		},{
+			"name" : "is_item",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Search by is item"
+		}]
+	},
+	"/item/category" : {
+		"method" : "get",
+		"description" : "Get item by category ID",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Category ID"
+		}]
+	},
+	"/item/history" : {
+		"method" : "get",
+		"description" : "Get item history",
+		"token" : true,
+		"parameter" : [{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item ig_id"
+		}]
+	},
+	"/item/plan/history" : {
+		"method" : "get",
+		"description" : "Get item plan history",
+		"token" : true,
+		"parameter" : [{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "filter data by Item ig_id"
+		},
+		{
+			"name" : "item_name",
+			"type" : "str",
+			"required" : true,
+			"description" : "Item name"
+		},
+		{
+			"name" : "category",
+			"type" : "str",
+			"required" : true,
+			"description" : "Category Name"
+		},
+		{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "filter data by warehouse id"
+		},
+		{
+			"name" : "warehouse_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "warehouse name"
+		},
+		{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by plan stock range date for start date"
+		},
+		{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by plan stock range date for end date"
+		},
+		{
+			"name" : "export",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "true for export, false to get list"
+		}]
+	},
+	"/item/actual/history" : {
+		"method" : "get",
+		"description" : "Get item actual history",
+		"token" : true,
+		"parameter" : [{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "filter data by Item ig_id"
+		},
+		{
+			"name" : "item_name",
+			"type" : "str",
+			"required" : true,
+			"description" : "Item name"
+		},
+		{
+			"name" : "category",
+			"type" : "str",
+			"required" : true,
+			"description" : "Category Name"
+		},
+		{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "filter data by warehouse id"
+		},
+		{
+			"name" : "warehouse_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "warehouse name"
+		},
+		{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by actual stock range date for start date"
+		},
+		{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by actual stock range date for end date"
+		},
+		{
+			"name" : "export",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "true for export, false to get list"
+		}]
+	},
+	"/item/detail" : {
+		"method" : "get",
+		"description" : "Get detail of items",
+		"token" : true,
+		"parameter" : [{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item's ig_id"
+		}]
+	},
+	"/item/create" : {
+		"method" : "post",
+		"description" : "Create new items",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's code ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's name"
+		},{
+			"name" : "unit",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's unit"
+		},{
+			"name" : "weight",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Item's weight"
+		},{
+			"name" : "serial",
+			"type" : "string",
+			"required" : false,
+			"description" : "Item's serial number"
+		},{
+			"name" : "brand",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's brand name"
+		},{
+			"name" : "item_group",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's group name"
+		},{
+			"name" : "category_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item's category id"
+		},{
+			"name" : "grade",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's grade"
+		},{
+			"name" : "supplier_id",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Array of supplier's ID this item"
+		},{
+			"name" : "stock_lock",
+			"type" : "boolean",
+			"required" : true,
+			"description" : "Item's stock lock status (1=true, 0=false)"
+		},{
+			"name" : "is_item",
+			"type" : "boolean",
+			"required" : true,
+			"description" : "Item's stock lock status (1=true, 0=false)"
+		}]
+	},
+	"/item/update" : {
+		"method" : "put",
+		"description" : "Update item's data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "ig_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's database ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's name"
+		},{
+			"name" : "unit",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's unit"
+		},{
+			"name" : "weight",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Item's weight"
+		},{
+			"name" : "serial",
+			"type" : "string",
+			"required" : false,
+			"description" : "Item's serial number"
+		},{
+			"name" : "brand",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's brand name"
+		},{
+			"name" : "item_group",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's group name"
+		},{
+			"name" : "category_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item's category id"
+		},{
+			"name" : "grade",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's grade"
+		},{
+			"name" : "supplier_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "ID of supplier's this item"
+		},{
+			"name" : "stock_lock",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item's stock lock status (1=true, 0=false)"
+		}]
+	},
+	"/item/coil/template" : {
+		"method" : "get",
+		"description" : "Get item coil excel template",
+		"token" : true,
+		"parameter" : []
+	},
+	"/item/coil/import" : {
+		"method" : "post",
+		"content_type" : "form-data",
+		"description" : "Import new item coil data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "file",
+			"type" : "file",
+			"required" : true,
+			"description" : "Excel file"
+		}]
+	},
+	"/warehouse/all" : {
+		"method" : "get",
+		"description" : "Get all list of warehouse",
+		"token" : true,
+		"parameter" : []
+	},
+	"/warehouse/list" : {
+		"method" : "get",
+		"description" : "Get list of warehouse",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by warehouse's ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by warehouse's name"
+		}]
+	},
+	"/warehouse/detail" : {
+		"method" : "get",
+		"description" : "Get detail data warehouse",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's ID"
+		}]
+	},
+	"/warehouse/create" : {
+		"method" : "post",
+		"description" : "Create new warehouse",
+		"token" : true,
+		"parameter" : [{
+			"name" : "code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's code"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's name"
+		},{
+			"name" : "address",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's address"
+		},{
+			"name" : "province",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Warehouse's province"
+		},{
+			"name" : "city",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Warehouse's city"
+		},{
+			"name" : "district",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Warehouse's district"
+		},{
+			"name" : "urban",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Warehouse's urban"
+		},{
+			"name" : "postal_code",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's postal code"
+		},{
+			"name" : "phone",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's phone number"
+		},{
+			"name" : "fax",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's fax number"
+		},{
+			"name" : "contact_person",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's contact person"
+		},{
+			"name" : "do_code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's DO code"
+		},{
+			"name" : "bkb_code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's BKB code"
+		},{
+			"name" : "btb_code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's BTB code"
+		}]
+	},
+	"/warehouse/update" : {
+		"method" : "put",
+		"description" : "Update warehouse data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse's id"
+		},{
+			"name" : "code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's code"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's name"
+		},{
+			"name" : "address",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's address"
+		},{
+			"name" : "city",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's city"
+		},{
+			"name" : "postal_code",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's postal code"
+		},{
+			"name" : "phone",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's phone"
+		},{
+			"name" : "contact_person",
+			"type" : "string",
+			"required" : false,
+			"description" : "Warehouse's contact person"
+		},{
+			"name" : "do_code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's DO code"
+		},{
+			"name" : "bkb_code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's BKB code"
+		},{
+			"name" : "btb_code",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's BTB code"
+		}]
+	},
+	"/warehouse/delete" : {
+		"method" : "delete",
+		"description" : "Delete warehouse data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse's id"
+		}]
+	},
+	"/warehouse/item" : {
+		"method" : "get",
+		"description" : "Get item list in a warehouse",
+		"token" : true,
+		"parameter" : [{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "category",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by item category name"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by item name"
+		}]
+	},
+	"/inventory/warehouse" : {
+		"method" : "get",
+		"description" : "Get list item inventory in warehouse",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "warehouse",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse's ID"
+		},{
+			"name" : "item_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter by item name"
+		},{
+			"name" : "category",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter by item category name"
+		}]
+	},
+	"/mutation/list" : {
+		"method" : "get",
+		"description" : "Get list item of mutation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "do",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Filter mutation by it's ID"
+		},{
+			"name" : "item_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter mutation by Item ID"
+		},{
+			"name" : "item_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter mutation by Item Name"
+		}]
+	},
+	"/mutation/detail" : {
+		"method" : "get",
+		"description" : "Get detail of mutation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Mutation's ID"
+		}]
+	},
+	"/mutation/print" : {
+		"method" : "url",
+		"description" : "Print mutation data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Mutation's ID"
+		}]
+	},
+	"/mutation/create" : {
+		"method" : "post",
+		"description" : "Create new mutation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "from",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse's ID"
+		},{
+			"name" : "to",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse's ID"
+		},{
+			"name" : "items",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Mutation item, Array of object => {ig_id : <integer>, quantity : <integer>}"
+		}]
+	},
+	"/mutation/close" : {
+		"method" : "put",
+		"description" : "Close mutation process",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Mutation ID"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Closing type, (0: Adjust | 1: With SO)"
+		}]
+	},
+	"/mutation/close/validate" : {
+		"method" : "put",
+		"description" : "Validate mutation with invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Mutation ID"
+		},{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales Order ID"
+		}]
+	},
+	"/conversion/list" : {
+		"method" : "get",
+		"description" : "Get list of conversion data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "warehouse",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter conversion by warehouse name"
+		},{
+			"name" : "item_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter conversion by item id"
+		},{
+			"name" : "item_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter conversion by item name"
+		}]
+	},
+	"/conversion/detail" : {
+		"method" : "get",
+		"description" : "Get detail of conversion data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Convertion's id"
+		}]
+	},
+	"/conversion/create" : {
+		"method" : "post",
+		"description" : "Create new conversion data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "w_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse's ID"
+		},{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Converting item's ID"
+		},{
+			"name" : "quantity",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Converting item's quantity"
+		},{
+			"name" : "convert_item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Converting item result, Array of object => {\"ig_id\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/btb/list" : {
+		"method" : "get",
+		"description" : "Get list of btb data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter btb by btb ID"
+		},{
+			"name" : "from",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter btb by from name"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter btb by date"
+		}]
+	},
+	"/btb/detail" : {
+		"method" : "get",
+		"description" : "Get detail of btb data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "BTB ID"
+		}]
+	},
+	"/btb/print" : {
+		"method" : "URL",
+		"description" : "Print detail of btb data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "BTB ID"
+		}]
+	},
+	"/btb/create" : {
+		"method" : "post",
+		"description" : "Create new BTB",
+		"token" : true,
+		"parameter" : [{
+			"name" : "type",
+			"type" : "string",
+			"required" : true,
+			"description" : "BTB type, value must po/retur/mutation"
+		},{
+			"name" : "order_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "PO ID / DO ID, required if btb type is po/retur/mutation"
+		},{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "SO ID, required if btb type is retur"
+		},{
+			"name" : "transport_number",
+			"type" : "string",
+			"required" : false,
+			"description" : "Vehicle licence plate number"
+		},{
+			"name" : "driver",
+			"type" : "string",
+			"required" : false,
+			"description" : "Vehicle driver name"
+		},{
+			"name" : "from",
+			"type" : "string",
+			"required" : false,
+			"description" : "Name of delivery from"
+		},{
+			"name" : "description",
+			"type" : "string",
+			"required" : false,
+			"description" : "BTB description"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Delivery item, Array of object =>{\"ig_id\":<value>, \"quantity\":<value>, \"order_quantity\":<value>}"
+		}]
+	},
+	"/bkb/list" : {
+		"method" : "get",
+		"description" : "Get list of bkb data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter btb by bkb ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter btb by date"
+		},{
+			"name" : "do_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter btb by do ID"
+		},{
+			"name" : "c_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter btb by customer name"
+		}]
+	},
+	"/bkb/detail" : {
+		"method" : "get",
+		"description" : "Get detail of BKB",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "BKB ID"
+		}]
+	},
+	"/bkb/print" : {
+		"method" : "get",
+		"description" : "Print detail of BKB",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "BKB ID"
+		}]
+	},
+	"/bkb/create" : {
+		"method" : "post",
+		"description" : "Create new BKB",
+		"token" : true,
+		"parameter" : [{
+			"name" : "do_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "DO ID"
+		},{
+			"name" : "transport_number",
+			"type" : "string",
+			"required" : true,
+			"description" : "Vehicle licence plate number"
+		},{
+			"name" : "driver",
+			"type" : "string",
+			"required" : true,
+			"description" : "Vehicle driver name"
+		},{
+			"name" : "note",
+			"type" : "string",
+			"required" : true,
+			"description" : "BKB notes"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Delivery item, Array of object =>{\"ig_id\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/inventory/adjust" : {
+		"method" : "put",
+		"description" : "Adjust stock item in a warehouse",
+		"token" : true,
+		"parameter" : [{
+			"name" : "w_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse's ID"
+		},{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item's ig_id"
+		},{
+			"name" : "stock_actual",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Value adjusted item"
+		},{
+			"name" : "reason",
+			"type" : "string",
+			"required" : true,
+			"description" : "Adjusment reason"
+		}]
+	},
+	"/inventory/auth/list" : {
+		"method" : "get",
+		"description" : "Get inventory authentication list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by authentication date"
+		}]
+	},
+	"/inventory/auth/detail" : {
+		"method" : "get",
+		"description" : "Get inventory authentication detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "auth_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/inventory/adjust/approve" : {
+		"method" : "post",
+		"description" : "Approve inventory adjustment",
+		"token" : true,
+		"parameter" : [{
+			"name" : "authinv_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Inventory adjustment authentication ID"
+		}]
+	},
+	"/inventory/auth/reject" : {
+		"method" : "delete",
+		"description" : "Reject authentication inventory adjust item",
+		"token" : true,
+		"parameter" : [{
+			"name" : "authinv_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Inventory adjustment authentication ID"
+		}]
+	},
+	"/inventory/update" : {
+		"method" : "put",
+		"description" : "Update maximum and minimum inventory stock",
+		"token" : true,
+		"parameter" : [{
+			"name" : "w_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse's ID"
+		},{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item's ig_id"
+		},{
+			"name" : "maximum",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Value stock maximum item"
+		},{
+			"name" : "minimum",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Value stock minimum item"
+		}]
+	},
+	"/sales/contract/list" : {
+		"method" : "get",
+		"description" : "Get list of contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "contract_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter sales contract by contract_id"
+		},{
+			"name" : "customer_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter sales contract by customer name"
+		}]
+	},
+	"/sales/contract/detail" : {
+		"method" : "get",
+		"description" : "Get detail of sales contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Sales contract ID"
+		}]
+	},
+	"/sales/contract/history" : {
+		"method" : "get",
+		"description" : "Get history sales contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Sales contract ID"
+		},{
+			"name" : "history_limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit sales history data"
+		},{
+			"name" : "history_limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start sales history data"
+		}]
+	},
+	"/sales/contract/create" : {
+		"method" : "post",
+		"description" : "Create new sales contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "contract_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Sales contract ID"
+		},{
+			"name" : "contract_start",
+			"type" : "date",
+			"required" : true,
+			"description" : "Sales contract start date"
+		},{
+			"name" : "contract_end",
+			"type" : "date",
+			"required" : true,
+			"description" : "Sales contract end date"
+		},{
+			"name" : "dp",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Sales contract DP"
+		},{
+			"name" : "percentage",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Sales contract DP cut percentage"
+		},{
+			"name" : "tonase",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Sales contract tonase"
+		},{
+			"name" : "customer_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer ID"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Sales contract item, array of object => {\"ig_id\":<value>, \"price\":<value>, \"quantity\": <value>}"
+		}]
+	},
+	"/sales/contract/amandemen" : {
+		"method" : "post",
+		"description" : "Create amandemen for sales contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "contract_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Sales contract ID"
+		},{
+			"name" : "contract_end",
+			"type" : "date",
+			"required" : false,
+			"description" : "Sales contract end date"
+		},{
+			"name" : "dp",
+			"type" : "numeric",
+			"required" : false,
+			"description" : "Sales contract DP"
+		},{
+			"name" : "tonase",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Sales contract tonase"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : false,
+			"description" : "Sales contract item, array of object => {\"ig_id\":<value>, \"price\":<value>, \"quantity\": <value>}"
+		}]
+	},
+	"/price/list" : {
+		"method" : "get",
+		"description" : "Get list of price",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/price/auth/detail" : {
+		"method" : "get",
+		"description" : "Get detail of price authentication",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/price/list/export" : {
+		"method" : "get",
+		"description" : "Export price list data to xlsx file",
+		"token" : true,
+		"parameter" : []
+	},
+	"/price/list/import" : {
+		"method" : "post",
+		"content_type" : "form-data",
+		"description" : "Import file price list to update price list data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "file",
+			"type" : "file",
+			"required" : true,
+			"description" : "Price list .xlxs file"
+		}]
+	},
+	"/price/update" : {
+		"method" : "put",
+		"description" : "Create or update new price for an item",
+		"token" : true,
+		"parameter" : [{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item's ig_id"
+		},{
+			"name" : "price",
+			"type" : "Object",
+			"required" : true,
+			"description" : "Item price, An object => {\"cash_pabrik\":<value>, \"cash_gudang\":<value>, \"kredit_pabrik\":<value>, \"kredit_gudang\":<value>}"
+		}]
+	},
+	"/price/update/approve" : {
+		"method" : "put",
+		"description" : "Approve authentication update price",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/quotation/list" : {
+		"method" : "get",
+		"description" : "Get list of quotation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Filter data by quotation id"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by quotation date"
+		},{
+			"name" : "customer_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		}]
+	},
+	"/quotation/print" : {
+		"method" : "url",
+		"description" : "Print quotation data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Quotation id"
+		}]
+	},
+	"/quotation/detail" : {
+		"method" : "get",
+		"description" : "Get detail of quotation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Quotation id"
+		}]
+	},
+	"/quotation/create" : {
+		"method" : "post",
+		"description" : "Create new quotation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "customer_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer id"
+		},{
+			"name" : "pay_method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Payment methode value : 1(cash) / 2(credit)"
+		},{
+			"name" : "pickup",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item pickup methode value : 1(pabrik) / 2(gudang)"
+		},{
+			"name" : "due_date",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Payment due date, value in day"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Quotation items, array of object => {\"ig_id\": <value>, \"w_id\": <value>, \"quantity\": <value>, \"price\":<value>, \"sell_price\":<value>, \"note\":<value>}"
+		}]
+	},
+	"/quotation/realization" : {
+		"method" : "post",
+		"description" : "Realization quotation to SO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Quotation ID"
+		}]
+	},
+	"/sales/order/list" : {
+		"method" : "get",
+		"description" : "Get list of SO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by SO id"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by SO date"
+		},{
+			"name" : "customer_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		},{
+			"name" : "sales_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by sales name"
+		}]
+	},
+	"/sales/order/info" : {
+		"method" : "get",
+		"description" : "Get SO information data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/sales/order/cut/detail" : {
+		"method" : "get",
+		"description" : "Get SO cut cost detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/sales/order/cut/print" : {
+		"method" : "get",
+		"description" : "Print SO cut cost",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/sales/order/delivery/detail" : {
+		"method" : "get",
+		"description" : "Get sales order delivery detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Delivery ID"
+		}]
+	},
+	"/sales/order/delivery/print" : {
+		"method" : "get",
+		"description" : "Print sales order delivery",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Delivery ID"
+		}]
+	},
+	"/sales/order/detail" : {
+		"method" : "get",
+		"description" : "Get detail of sales order (SO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/sales/order/invoice" : {
+		"method" : "get",
+		"description" : "Get detail invoice by SO Id",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/sales/order/item/detail" : {
+		"method" : "get",
+		"description" : "Get item list sales order in a warehouse",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		},{
+			"name" : "warehouse_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Warehouse ID"
+		}]
+	},
+	"/sales/order/print" : {
+		"method" : "URL",
+		"description" : "Print SO information data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/sales/order/letter/print" : {
+		"method" : "URL",
+		"description" : "Print SO information data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/sales/order/update" : {
+		"method" : "PUT",
+		"description" : "Update Sales Order (SO) items",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "SO item, Array of object => {\"ig_id\":<value>, \"sell_price\":<value>}"
+		}]
+	},
+	"/sales/order/create" : {
+		"method" : "post",
+		"description" : "Create new Sales Order (SO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "pay_method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "SO pay method, value => 1(cash) | 2(credit)"
+		},{
+			"name" : "pickup",
+			"type" : "integer",
+			"required" : true,
+			"description" : "SO pickup, value => 1(pabrik) | 2(gudang)"
+		},{
+			"name" : "contract_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "If want to create SO by contract_id"
+		},{
+			"name" : "tipo_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Required if want to create SO for TIPO"
+		},{
+			"name" : "customer_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer ID"
+		},{
+			"name" : "due_date",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Payment due date, value in day"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : false,
+			"description" : "SO items, Array of object => {\"ig_id\":<value>, \"w_id\":<value>, \"quantity\":<value>, \"price\":<value>, \"sell_price\":<value>, \"note\":<value>}"
+		},{
+			"name" : "delivery",
+			"type" : "object",
+			"required" : false,
+			"description" : "delivery, object => { \"delivery_id\":<value>, \"address\":<value>, \"delivery_price\":<value>, \"delivery_note\":<value>}"
+		}]
+	},
+	"/sales/order/cut" : {
+		"method" : "post",
+		"description" : "Create sales order cut cost",
+		"token" : true,
+		"parameter" : [{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales Order ID"
+		},{
+			"name" : "items",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Sales Order items cut, Array of object => {\"ig_id\":<value>, \"cut_cost\":<value>}"
+		}]
+	},
+	"/sales/order//customer/update" : {
+		"method" : "get",
+		"description" : "Update customer_name, customer_address from tbl so",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/sales/price" : {
+		"method" : "get",
+		"description" : "Get price list for sales",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "pay_method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "SO pay method, value => 1(cash) | 2(credit)"
+		},{
+			"name" : "pickup",
+			"type" : "integer",
+			"required" : true,
+			"description" : "SO pickup, value => 1(pabrik) | 2(gudang)"
+		},{
+			"name" : "contract_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Price list from customer sales contract"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Search by item Code"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by item name"
+		},{
+			"name" : "category",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by item category name"
+		}]
+	},
+	"/do/create" : {
+		"method" : "post",
+		"description" : "Create new DO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales Order (SO) ID"
+		},{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "DO items, Array of object => {\"ig_id\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/do/detail" : {
+		"method" : "get",
+		"description" : "Get DO Detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "do_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery Order (DO) ID"
+		}]
+	},
+	"/do/print" : {
+		"method" : "URL",
+		"description" : "Get data DO to print DO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery Order (DO) ID"
+		}]
+	},
+	"/do/print/validate" : {
+		"method" : "get",
+		"description" : "Validating DO before print",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery Order (DO) ID"
+		}]
+	},
+	"/do/print/request" : {
+		"method" : "post",
+		"description" : "Request re-print DO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery Order (DO) ID"
+		}]
+	},
+	"/do/reprint" : {
+		"method" : "url",
+		"description" : "Re-print DO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery Order (DO) ID"
+		}]
+	},
+	"/payment/list" : {
+		"method" : "get",
+		"description" : "Get list of payment",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "invoice",
+			"type" : "stfing",
+			"required" : false,
+			"description" : "Filter data by invoice ID"
+		},{
+			"name" : "customer_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		}]
+	},
+	"/payment/purchase/order/list" : {
+		"method" : "get",
+		"description" : "Get list of payment PO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/payment/detail" : {
+		"method" : "get",
+		"description" : "Get payment detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Payment ID"
+		}]
+	},
+	"/payment/purchase/order/detail" : {
+		"method" : "get",
+		"description" : "Get payment PO detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Payment PO ID"
+		}]
+	},
+	"/payment/purchase/order/create" : {
+		"method" : "post",
+		"description" : "Create payment for purchase order invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "total",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Payment total"
+		},{
+			"name" : "supplier",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Supplier ID"
+		},{
+			"name" : "method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Payment method, value (0:tunai | 1:transfer | 2:cek | 3:giro)"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : false,
+			"description" : "Payment bank, required if method > 0"
+		},{
+			"name" : "proof",
+			"type" : "string",
+			"required" : false,
+			"description" : "Payment proof, required if method > 0"
+		},{
+			"name" : "due_date",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Long days of payment disbursement, required if method > 1"
+		},{
+			"name" : "invoice",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Paid invoice data, array of object => {\"id\":<string>, \"paid\":<numeric>}"
+		}]
+	},
+	"/payment/create" : {
+		"method" : "post",
+		"description" : "Create payment for customer order",
+		"token" : true,
+		"parameter" : [{
+			"name" : "total",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Payment total"
+		},{
+			"name" : "method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Payment method, value (0:tunai | 1:transfer | 2:cek | 3:giro)"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : false,
+			"description" : "Payment bank, required if method > 0"
+		},{
+			"name" : "proof",
+			"type" : "string",
+			"required" : false,
+			"description" : "Payment proof, required if method > 0"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "payment date, required if method = 1"
+		},{
+			"name" : "due_date",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Long days of payment disbursement, required if method > 1"
+		},{
+			"name" : "customer_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer ID"
+		},{
+			"name" : "customer_bank",
+			"type" : "string",
+			"required" : false,
+			"description" : "Customer cek or giro bank, required if method > 1"
+		},{
+			"name" : "invoice",
+			"type" : "Array",
+			"required" : true,
+			"description" : "Paid invoice data, array of object => {\"id\":<string>, \"paid\":<numeric>, \"stamp\":<boolean>, \"inv_total\":<numeric>}"
+		}]
+	},
+	"/purchase/contract/create" : {
+		"method" : "post",
+		"description" : "Create new purchase contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Contract ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Contract date"
+		},{
+			"name" : "end",
+			"type" : "date",
+			"required" : true,
+			"description" : "Contract end date"
+		},{
+			"name" : "dp",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Contract DP"
+		},{
+			"name" : "tonase",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Contract total tonase"
+		},{
+			"name" : "supplier_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "Contract items data, array of object => {\"ig_id\":<value>, \"price\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/purchase/contract/amandemen" : {
+		"method" : "put",
+		"description" : "Amandemen purchase contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Contract ID"
+		},{
+			"name" : "end",
+			"type" : "date",
+			"required" : true,
+			"description" : "Contract end date"
+		},{
+			"name" : "tonase",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Contract total tonase"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "Contract items data, array of object => {\"ig_id\":<value>, \"price\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/purchase/contract/list" : {
+		"method" : "get",
+		"description" : "Get list of purchase contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by purchase contract ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by purchase contract date"
+		},{
+			"name" : "supplier_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by supplier name"
+		}]
+	}
+	,
+	"/purchase/contract/item" : {
+		"method" : "get",
+		"description" : "Get item list of purchase contract by supplier id",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "supplier_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by item name"
+		},{
+			"name" : "category",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by item category name"
+		}]
+	},
+	"/purchase/contract/detail" : {
+		"method" : "get",
+		"description" : "Get purchase contract detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of amandemen data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of amandemen data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Purchase contract ID"
+		}]
+	},
+	"/purchase/contract/history" : {
+		"method" : "get",
+		"description" : "Get history purchase contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Purchase contract ID"
+		}]
+	},
+	"/purchase/contract/history/print" : {
+		"method" : "get",
+		"description" : "Print history purchase contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Purchase contract ID"
+		}]
+	},
+	"/purchase/contract/close" : {
+		"method" : "delete",
+		"description" : "Close purchase contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Purchase contract ID"
+		}]
+	},
+	"/purchase/order/list" : {
+		"method" : "get",
+		"description" : "Get list of purchase order",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by PO ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by PO date"
+		},{
+			"name" : "supplier_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by supplier name"
+		}]
+	},
+	"/purchase/order/invoice/list" : {
+		"method" : "get",
+		"description" : "Get list of purchase order invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by Invoice PO ID"
+		},{
+			"name" : "supplier_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by supplier name"
+		}]
+	},
+	"/purchase/order/invoice/item" : {
+		"method" : "get",
+		"description" : "Get purchase order invoice item",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "supplier",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item name"
+		},{
+			"name" : "category",
+			"type" : "string",
+			"required" : true,
+			"description" : "Category name"
+		}]
+	},
+	"/purchase/order/cancel" : {
+		"method" : "get",
+		"description" : "Cancel Purchase Order (PO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "PO ID"
+		}]
+	},
+	"/purchase/order/detail" : {
+		"method" : "get",
+		"description" : "Get detail data PO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "PO ID"
+		}]
+	},
+	"/purchase/order/history" : {
+		"method" : "get",
+		"description" : "Get purchase order BTB history",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "PO ID"
+		}]
+	},
+	"/purchase/order/invoice/detail" : {
+		"method" : "get",
+		"description" : "Get detail data Invoice PO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice PO ID"
+		}]
+	},
+	"/purchase/order/print" : {
+		"method" : "URL",
+		"description" : "Print detail data PO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "PO ID"
+		}]
+	},
+	"/purchase/order/invoice/create" : {
+		"method" : "post",
+		"description" : "Create new purchase order (PO) Invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice PO ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Invoice PO date"
+		},{
+			"name" : "due_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Invoice due date"
+		},{
+			"name" : "tax_invoice",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice tax serial"
+		},{
+			"name" : "supplier",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "Invoice PO items, array of object => {\"po_id\":<value>, \"ig_id\":<value>, \"quantity\":<value>, \"weight\":<value>, \"price\":<value>}"
+		}]
+	},
+	"/purchase/order/invoice/update" : {
+		"method" : "put",
+		"description" : "Update purchase order (PO) Invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice PO ID"
+		},{
+			"name" : "due_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Invoice PO due_date"
+		},{
+			"name" : "tax_invoice",
+			"type" : "string",
+			"required" : false,
+			"description" : "Invoice PO tax_invoice"
+		},{
+			"name" : "status",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Invoice PO status"
+		},{
+			"name" : "total",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Invoice PO total"
+		},{
+			"name" : "total_remain",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Invoice PO total remain"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "Invoice PO items, array of object => {\"po_id\":<value>, \"ig_id\":<value>, \"quantity\":<value>, \"price\":<value>}"
+		}]
+	},
+	"/purchase/order/create" : {
+		"method" : "post",
+		"description" : "Create new purchase order (PO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "supplier_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		},{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Sales order ID, if want to create PO for SO"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Purchase order type (0: non kontrak | 1: kontrak)"
+		},{
+			"name" : "po_total",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Purchase order total"
+		},{
+			"name" : "warehouse_id",
+			"type" : "int",
+			"required" : false,
+			"description" : "Warehouse ID, required if not sending so_id"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "PO items, array of object => {\"ig_id\":<value>, \"quantity\":<value>, \"contract_id\":<value>, \"price\":<value>}"
+		}]
+	},
+	"/purchase/order/factory/create" : {
+		"method" : "post",
+		"description" : "Create new factory purchase order (PO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "supplier_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		},{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales order ID, if want to create PO for SO"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "PO items, array of object => {\"ig_id\":<value>, \"quantity\":<value>, \"contract_id\":<value>, \"price\":<value>}"
+		}]
+	},
+	"/billing/list" : {
+		"method" : "get",
+		"description" : "Get list of customer billing",
+		"token" : true,
+		"parameter" : [{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Date"
+		},{
+			"name" : "region",
+			"type" : "string",
+			"required" : false,
+			"description" : "Region"
+		}]
+	},
+	"/billing/detail" : {
+		"method" : "get",
+		"description" : "Get billing detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "invoice",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice ID"
+		}]
+	},
+	"/billing/update" : {
+		"method" : "post",
+		"description" : "Update billing data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "invoice",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice ID"
+		},{
+			"name" : "note",
+			"type" : "string",
+			"required" : true,
+			"description" : "Billing note (Nota tukar)"
+		},{
+			"name" : "info",
+			"type" : "string",
+			"required" : true,
+			"description" : "Billing information"
+		},{
+			"name" : "pay_method",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Billing payment method, value : 0(tunai) | 1(transfer) | 2(cek) | 3(giro)"
+		},{
+			"name" : "total",
+			"type" : "numeric",
+			"required" : false,
+			"description" : "Billing payment total"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : false,
+			"description" : "Billing payment bank, required if payment method > 0"
+		},{
+			"name" : "proof",
+			"type" : "string",
+			"required" : false,
+			"description" : "Billing payment proof, required if payment method > 0"
+		},{
+			"name" : "due_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Billing payment due date, required if payment method > 1"
+		},{
+			"name" : "efaktur",
+			"type" : "date",
+			"required" : false,
+			"description" : "Billing efaktur date"
+		},{
+			"name" : "sj",
+			"type" : "date",
+			"required" : false,
+			"description" : "Billing surat jalan date"
+		}]
+	},
+	"/invoice/detail" : {
+		"method" : "get",
+		"description" : "Get detail of invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice ID"
+		}]
+	},
+	"/invoice/tax" : {
+		"method" : "get",
+		"description" : "Get invoice detail data for update tax and inv_id",
+		"token" : true,
+		"parameter" : [{
+			"name" : "inv_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice ID"
+		}]
+	},
+	"/invoice/update" : {
+		"method" : "put",
+		"description" : "Update tax serial and inv_id from invoice detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "inv_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice ID"
+		},{
+			"name" : "inv_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Date of Invoice ID"
+		},{
+			"name" : "inv_tax",
+			"type" : "date",
+			"required" : true,
+			"description" : "Invoice Tax, ex : 010.000-18.74993218"
+		}]
+	},
+	"/invoice/replacement" : {
+		"method" : "put",
+		"description" : "Update customer and customer address for replacement invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SO ID"
+		}]
+	},
+	"/invoice/print" : {
+		"method" : "URL",
+		"description" : "print detail of invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Invoice ID"
+		}]
+	},
+	"/payment/proof" : {
+		"method" : "get",
+		"description" : "Get payment detail data by proof number",
+		"token" : true,
+		"parameter" : [{
+			"name" : "proof",
+			"type" : "string",
+			"required" : true,
+			"description" : "Payment proof"
+		}]
+	},
+	"/payment/disbursement" : {
+		"method" : "post",
+		"description" : "Disbursement payment (pencairan cek / giro)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "proof",
+			"type" : "string",
+			"required" : true,
+			"description" : "Payment proof"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : true,
+			"description" : "Payment disbursement bank destination"
+		}]
+	},
+	"/payment/disbursement/all" : {
+		"method" : "post",
+		"description" : "Disbursement all payment (pencairan cek / giro)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "payment",
+			"type" : "array",
+			"required" : true,
+			"description" : "payment, an array of object => {\"p_id\":<value>, \"p_status\":<value>, \"p_bank\":<value>, \"p_due\":<value>}"
+		}]
+	},
+	"/payment/disbursement/all" : {
+		"method" : "get",
+		"description" : "Print Disbursement all payment (pencairan cek / giro)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "payment",
+			"type" : "array",
+			"required" : true,
+			"description" : "payment, an array of object => {\"p_id\":<value>, \"p_status\":<value>, \"p_bank\":<value>, \"p_due\":<value>}"
+		}]
+	},
+	"/cash/in/list" : {
+		"method" : "get",
+		"description" : "Get cash in list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Filter by cash in ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter by cash in date"
+		}]
+	},
+	"/cash/out/list" : {
+		"method" : "get",
+		"description" : "Get cash out list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by cash out ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by cash out date"
+		}]
+	},
+	"/cash/in/detail" : {
+		"method" : "get",
+		"description" : "Get cash in detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Cash in ID"
+		}]
+	},
+	"/cash/in/print" : {
+		"method" : "get",
+		"description" : "Print cash in detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Cash in ID"
+		},{
+			"name" : "payment_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Paymeng ID"
+		}]
+	},
+	"/cash/out/detail" : {
+		"method" : "get",
+		"description" : "Get cash out detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Cash out ID"
+		}]
+	},
+	"/cash/out/print" : {
+		"method" : "url",
+		"description" : "Pring cash out detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Cash out ID"
+		},{
+			"name" : "payment_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "PO Payment ID"
+		}]
+	},
+	"/cash/in/create" : {
+		"method" : "post",
+		"description" : "Create new cash in",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Cash in date"
+		},{
+			"name" : "from",
+			"type" : "string",
+			"required" : true,
+			"description" : "Cash in from"
+		},{
+			"name" : "note",
+			"type" : "string",
+			"required" : true,
+			"description" : "Cash in note"
+		},{
+			"name" : "method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Cash in method, value = 0(cash) | 1(transfer) | 2(cek) | 3(giro)"
+		},{
+			"name" : "total",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Cash in total"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : false,
+			"description" : "Cash in bank"
+		},{
+			"name" : "proof",
+			"type" : "string",
+			"required" : false,
+			"description" : "Cash in proof"
+		},{
+			"name" : "due_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Cash in payment due date"
+		}]
+	},
+	"/cash/out/create" : {
+		"method" : "post",
+		"description" : "Create new cash out",
+		"token" : true,
+		"parameter" : [{
+			"name" : "type",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Cash out type (0: dll | 1: Sales Order)"
+		},{
+			"name" : "to",
+			"type" : "string",
+			"required" : true,
+			"description" : "Cash out to"
+		},{
+			"name" : "note",
+			"type" : "string",
+			"required" : true,
+			"description" : "Cash out note"
+		},{
+			"name" : "method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Cash out method, value = 1(cash) | 2(cek) | 3(giro)"
+		},{
+			"name" : "total",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Cash out total"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : false,
+			"description" : "Cash out bank"
+		},{
+			"name" : "proof",
+			"type" : "string",
+			"required" : false,
+			"description" : "Cash out proof"
+		},{
+			"name" : "due_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Cash out payment due date"
+		},{
+			"name" : "so_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Sales order ID, required if type == 1"
+		},{
+			"name" : "c_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Customer ID, required if type == 1"
+		}]
+	},
+	"/tax/serial/list" : {
+		"method" : "get",
+		"description" : "Get tax serial list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/tax/invoice/export" : {
+		"method" : "URL",
+		"description" : "Export tax invoice to csv",
+		"token" : true,
+		"parameter" : [{
+			"name" : "start_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Start of data date"
+		},{
+			"name" : "end_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "End of data date"
+		},{
+			"name" : "invoice",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by invoice ID"
+		},{
+			"name" : "tax",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by invoice tax serial"
+		}]
+	},
+	"/tax/serial/create" : {
+		"method" : "post",
+		"description" : "Create new tax serial",
+		"token" : true,
+		"parameter" : [{
+			"name" : "serial_start",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Tax serial start number"
+		},{
+			"name" : "serial_end",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Tax serial end number"
+		},{
+			"name" : "start_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Tax serial start date"
+		},{
+			"name" : "end_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Tax serial end date"
+		}]
+	},
+	"/sales/auth/list" : {
+		"method" : "get",
+		"description" : "Get sales authentication list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by authentication date"
+		}]
+	},
+	"/sales/order/approve" : {
+		"method" : "post",
+		"description" : "Approve sales order (SO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/do/print/approve" : {
+		"method" : "post",
+		"description" : "Approve reprint DO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/do/cancel" : {
+		"method" : "delete",
+		"description" : "Cancel delivery order (DO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery order (DO) ID"
+		}]
+	},
+	"/do/resume" : {
+		"method" : "post",
+		"description" : "Resume delivery order (DO)",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery order (DO) ID"
+		}]
+	},
+	"/item/delete" : {
+		"method" : "delete",
+		"description" : "Delete an item data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "ig_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Item's database ID"
+		}]
+	},
+	"/delivery/price/list" : {
+		"method" : "get",
+		"description" : "Get delivery price list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by delivery price name"
+		},{
+			"name" : "capacity",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by delivery capacity"
+		}]
+	},
+	"/delivery/price/create" : {
+		"method" : "post",
+		"description" : "Create new delivery price",
+		"token" : true,
+		"parameter" : [{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery price name"
+		},{
+			"name" : "price",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Deliver price"
+		},{
+			"name" : "vehicle",
+			"type" : "string",
+			"required" : true,
+			"description" : "Vehicle name"
+		},{
+			"name" : "capacity",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Vehicle maximum capacity"
+		}]
+	},
+	"/delivery/price/detail" : {
+		"method" : "get",
+		"description" : "Get detail data delivery price",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Delivery price ID"
+		}]
+	},
+	"/delivery/price/update" : {
+		"method" : "put",
+		"description" : "Update delivery price",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery price ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery price name"
+		},{
+			"name" : "price",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Deliver price"
+		},{
+			"name" : "vehicle",
+			"type" : "string",
+			"required" : true,
+			"description" : "Vehicle name"
+		},{
+			"name" : "capacity",
+			"type" : "numeric",
+			"required" : true,
+			"description" : "Vehicle maximum capacity"
+		}]
+	},
+	"/delivery/price/delete" : {
+		"method" : "delete",
+		"description" : "Delete delivery price",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Delivery price ID"
+		}]
+	},
+	"/sales/order/cancel" : {
+		"method" : "delete",
+		"description" : "Request to cancel sales order",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales order ID"
+		}]
+	},
+	"/sales/order/cancel/approve" : {
+		"method" : "post",
+		"description" : "Approve sales order cancellation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/sales/contract/close" : {
+		"method" : "delete",
+		"description" : "Close sales order contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sale contract ID"
+		}]
+	},
+	"/sales/contract/cancel" : {
+		"method" : "delete",
+		"description" : "Request to cancel sales order contract",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sale contract ID"
+		}]
+	},
+	"/sales/contract/cancel/approve" : {
+		"method" : "post",
+		"description" : "Approve sales contract cancellation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/purchase/auth/list" : {
+		"method" : "get",
+		"description" : "Get purchase authentication list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by authentication date"
+		}]
+	},
+	"/purchase/order/approve" : {
+		"method" : "post",
+		"description" : "Approve request purchase order",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/finance/auth/list" : {
+		"method" : "get",
+		"description" : "Get purchase authentication list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by authentication date"
+		}]
+	},
+	"/customer/credit/approve" : {
+		"method" : "post",
+		"description" : "Approve customer credit status",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/report/delivery/order/outstanding" : {
+		"method" : "get",
+		"description" : "Get report outstanding DO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "DO date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Filter data by warehouse ID"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/invoice/credit" : {
+		"method" : "get",
+		"description" : "Get report credit invoice",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report end date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/sales/order" : {
+		"method" : "get",
+		"description" : "Get report sales order",
+		"token" : true,
+		"parameter" : [{
+			"name" : "start_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report start date"
+		},{
+			"name" : "end_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report end date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/quotation" : {
+		"method" : "get",
+		"description" : "Get report quotation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/purchase/reorder" : {
+		"method" : "get",
+		"description" : "Get report reorder",
+		"token" : true,
+		"parameter" : [{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/inventory/minus" : {
+		"method" : "get",
+		"description" : "Get report inventory stock minus",
+		"token" : true,
+		"parameter" : [{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/inventory/stock" : {
+		"method" : "get",
+		"description" : "Get report inventory stock",
+		"token" : true,
+		"parameter" : [{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/inventory/activity" : {
+		"method" : "get",
+		"description" : "Get report warehouse inventory activity",
+		"token" : true,
+		"parameter" : [{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report date"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/finance/income" : {
+		"method" : "get",
+		"description" : "Get report finance income",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/customer/credit" : {
+		"method" : "get",
+		"description" : "Get report customer credit",
+		"token" : true,
+		"parameter" : [{
+			"name" : "end_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report end date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/analysis/credit" : {
+		"method" : "get",
+		"description" : "Get report customer credit analysis",
+		"token" : true,
+		"parameter" : [{
+			"name" : "start_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report start date"
+		},{
+			"name" : "end_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report end date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/report/payment/disbursement" : {
+		"method" : "get",
+		"description" : "Get report payment disbursement",
+		"token" : true,
+		"parameter" : [{
+			"name" : "end_date",
+			"type" : "date",
+			"required" : true,
+			"description" : "Report end date"
+		},{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data | if null return all data"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data"
+		},{
+			"name" : "print",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "Print data"
+		}]
+	},
+	"/payment/undisbursement/list" : {
+		"method" : "get",
+		"description" : "Get undisbursement payment list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "customer",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		},{
+			"name" : "payment_method",
+			"type" : "integer",
+			"required" : false,
+			"description" : "payment method, value : 0:tunai | 1:transfer | 2:cek | 3:giro"
+		}]
+	},
+	"/tipo/list" : {
+		"method" : "get",
+		"description" : "Get list customer TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by TIPO ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by TIPO date"
+		},{
+			"name" : "customer",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		}]
+	},
+	"/tipo/detail" : {
+		"method" : "get",
+		"description" : "Get detail data TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "TIPO ID"
+		}]
+	},
+	"/tipo/print" : {
+		"method" : "url",
+		"description" : "Print TIPO data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "TIPO ID"
+		}]
+	},
+	"/tipo/create" : {
+		"method" : "post",
+		"description" : "Create new tipo",
+		"token" : true,
+		"parameter" : [{
+			"name" : "surat_jalan",
+			"type" : "string",
+			"required" : false,
+			"description" : "Customer surat jalan number"
+		},{
+			"name" : "driver",
+			"type" : "string",
+			"required" : true,
+			"description" : "Driver name"
+		},{
+			"name" : "transport_number",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer vehicle plate number"
+		},{
+			"name" : "customer_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Customer ID"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "TIPO items, an array of object => {\"serial\":<value>, \"category\":<value>, \"name\":<value>, \"weight\":<value>, \"quantity\":<value>, \"note\":<value>}"
+		}]
+	},
+	"/spk/list" : {
+		"method" : "get",
+		"description" : "Get list of SPK",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by SPK ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by SPK date"
+		},{
+			"name" : "customer",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		}]
+	},
+	"/spk/detail" : {
+		"method" : "get",
+		"description" : "Get SPK detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SPK ID"
+		}]
+	},
+	"/spk/print" : {
+		"method" : "url",
+		"description" : "Print SPK detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SPK ID"
+		}]
+	},
+	"/spk/create" : {
+		"method" : "post",
+		"description" : "Create TIPO SPK",
+		"token" : true,
+		"parameter" : [{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales Order (SO) ID"
+		},{
+			"name" : "ti_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "TIPO item ID"
+		},{
+			"name" : "quantity",
+			"type" : "integer",
+			"required" : true,
+			"description" : "TIPO item quantity"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "SPK item result, an Array of object => {\"name\":<value>, \"category\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/spk/report" : {
+		"method" : "post",
+		"description" : "Report TIPO SPK",
+		"token" : true,
+		"parameter" : [{
+			"name" : "spk_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "SPK ID"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "SPK item result, an Array of object => {\"name\":<value>, \"category\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/tipo/info" : {
+		"method" : "get",
+		"description" : "Get TIPO information data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "TIPO ID"
+		}]
+	},
+	"/tipo/item" : {
+		"method" : "get",
+		"description" : "Get TIPO item",
+		"token" : true,
+		"parameter" : [{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales Order (SO) ID"
+		}]
+	},
+	"/tipo/sales/order/list" : {
+		"method" : "get",
+		"description" : "Get list sales order for TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by SO id"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by SO date"
+		},{
+			"name" : "customer_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		},{
+			"name" : "sales_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by sales name"
+		}]
+	},
+	"/tipo/sales/order/detail" : {
+		"method" : "get",
+		"description" : "Get TIPO sales order (SO) detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales Order (SO) ID"
+		},{
+			"name" : "detail",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "If detail=true, return with SPK detail"
+		}]
+	},
+	"/tipo/do/create" : {
+		"method" : "post",
+		"description" : "Create DO TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "warehouse_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Warehouse ID"
+		},{
+			"name" : "so_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Sales order (SO) ID"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "DO TIPO item, an Array of object=> {\"spk_id\":<value>, \"ig_id\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/tipo/do/detail" : {
+		"method" : "get",
+		"description" : "Get DO TIPO detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "DO TIPO ID"
+		}]
+	},
+	"/tipo/do/print" : {
+		"method" : "url",
+		"description" : "Print TIPO detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "DO TIPO ID"
+		}]
+	},
+	"/tipo/do/resume" : {
+		"method" : "post",
+		"description" : "Resume DO TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "dotipo_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "DO TIPO ID want to resume"
+		}]
+	},
+	"/tipo/bkb/list" : {
+		"method" : "get",
+		"description" : "Get list data BKB TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by BKB TIPO ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BKB TIPO date"
+		},{
+			"name" : "customer",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by customer name"
+		}]
+	},
+	"/tipo/bkb/detail" : {
+		"method" : "get",
+		"description" : "Get BKB TIPO detail",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "BKB TIPO ID"
+		}]
+	},
+	"/tipo/bkb/print" : {
+		"method" : "url",
+		"description" : "Print BKB TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "BKB TIPO ID"
+		}]
+	},
+	"/tipo/bkb/create" : {
+		"method" : "post",
+		"description" : "Create new BKB TIPO",
+		"token" : true,
+		"parameter" : [{
+			"name" : "dotipo_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "DO TIPO ID"
+		},{
+			"name" : "transport_number",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer vehicle plate number"
+		},{
+			"name" : "driver",
+			"type" : "string",
+			"required" : true,
+			"description" : "Customer driver"
+		},{
+			"name" : "item",
+			"type" : "Array",
+			"required" : true,
+			"description" : "BKB TIPO item, An Array of object => {\"ig_id\":<value>, \"quantity\":<value>}"
+		}]
+	},
+	"/delivery/create" : {
+		"method" : "post",
+		"description" : "Create DO delivery",
+		"token" : true,
+		"parameter" : [{
+			"name" : "do_id",
+			"type" : "string",
+			"required" : true,
+			"description" : "DO ID"
+		},{
+			"name" : "delivery_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Delivery type id"
+		},{
+			"name" : "address",
+			"type" : "string",
+			"required" : true,
+			"description" : "Delivery destination address"
+		},{
+			"name" : "delivery_price",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Delivery price"
+		},{
+			"name" : "delivery_note",
+			"type" : "text",
+			"required" : false,
+			"description" : "Delivery note"
+		}]
+	},
+	"/item/grade" : {
+		"method" : "get",
+		"description" : "Get all item grade",
+		"token" : true,
+		"parameter" : []
+	},
+	"/item/category/all" : {
+		"method" : "get",
+		"description" : "Get all item category",
+		"token" : true,
+		"parameter" : []
+	},
+	"/item/grade/list" : {
+		"method" : "get",
+		"description" : "Get list item grade",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/item/category/list" : {
+		"method" : "get",
+		"description" : "Get list item category",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by item category name"
+		}]
+	},
+	"/item/grade/detail" : {
+		"method" : "get",
+		"description" : "Get detail item grade",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Item grade id"
+		}]
+	},
+	"/item/category/detail" : {
+		"method" : "get",
+		"description" : "Get detail item category",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Item category id"
+		}]
+	},
+	"/item/grade/create" : {
+		"method" : "post",
+		"description" : "Create new item grade",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item grade ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item grade name"
+		}]
+	},
+	"/item/grade/update" : {
+		"method" : "put",
+		"description" : "Update item grade data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item grade ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item grade name"
+		}]
+	},
+	"/item/grade/delete" : {
+		"method" : "delete",
+		"description" : "Delete item grade data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item grade ID"
+		}]
+	},
+	"/item/category/create" : {
+		"method" : "post",
+		"description" : "Create new item category",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item category ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item category name"
+		}]
+	},
+	"/item/category/update" : {
+		"method" : "put",
+		"description" : "Update item category data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item category ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item category name"
+		}]
+	},
+	"/item/category/delete" : {
+		"method" : "delete",
+		"description" : "Delete item category data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "Item category ID"
+		}]
+	},
+	"/auth/reject" : {
+		"method" : "delete",
+		"description" : "Reject an authentication",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Authentication ID"
+		}]
+	},
+	"/bank/list" : {
+		"method" : "get",
+		"description" : "Get bank list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		}]
+	},
+	"/bank/detail" : {
+		"method" : "get",
+		"description" : "Get bank detail data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "account",
+			"type" : "string",
+			"required" : true,
+			"description" : "Bank account ID"
+		}]
+	},
+	"/bank/create" : {
+		"method" : "post",
+		"description" : "Create new bank",
+		"token" : true,
+		"parameter" : [{
+			"name" : "account",
+			"type" : "string",
+			"required" : true,
+			"description" : "Bank account ID"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : true,
+			"description" : "Bank name"
+		},{
+			"name" : "saldo",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Saldo Bank"
+		}]
+	},
+	"/bank/update" : {
+		"method" : "put",
+		"description" : "Update bank data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "account",
+			"type" : "string",
+			"required" : true,
+			"description" : "Bank account ID"
+		},{
+			"name" : "bank",
+			"type" : "string",
+			"required" : true,
+			"description" : "Bank name"
+		}]
+	},
+	"/bank/delete" : {
+		"method" : "delete",
+		"description" : "Delete bank data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "account",
+			"type" : "string",
+			"required" : true,
+			"description" : "Bank account ID"
+		}]
+	},
+	"/purchase/order/bpb/create" : {
+		"method" : "post",
+		"description" : "Create new BPB",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter bpb by date"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Purchase order type (0: non kontrak | 1: kontrak)"
+		},{
+			"name" : "warehouse_id",
+			"type" : "int",
+			"required" : false,
+			"description" : "Warehouse ID, required if not sending so_id"
+		},{
+			"name" : "item",
+			"type" : "array",
+			"required" : true,
+			"description" : "PO items, array of object => {\"ig_id\":<value>, \"quantity\":<value>, \"contract_id\":<value>, \"price\":<value>}"
+		}]
+	},
+	"/purchase/order/bpb/list" : {
+		"method" : "get",
+		"description" : "Get list of bpb",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by BPB ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB date"
+		},{
+			"name" : "supplier_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by supplier name"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB range date for end date"
+		}]
+	},
+	"/purchase/order/bpb/detail" : {
+		"method" : "get",
+		"description" : "Get detail data BPB",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "BPB ID"
+		}]
+	},
+	"/purchase/order/bpb/item" : {
+		"method" : "get",
+		"description" : "Get bpb item",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default 10)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default 0)"
+		},{
+			"name" : "supplier",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Supplier ID"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Item name"
+		},{
+			"name" : "category",
+			"type" : "string",
+			"required" : false,
+			"description" : "Category name"
+		}]
+	},
+	"/purchase/order/bpb/print" : {
+		"method" : "URL",
+		"description" : "Print detail data BPB",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "BPB ID"
+		}]
+	},
+	"/report/original/bpb" : {
+		"method" : "get",
+		"description" : "Get list report of bpb",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by BPB ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB date"
+		},{
+			"name" : "supplier_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by supplier name"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB range date for end date"
+		}]
+	},
+	"/report/finance/hutang" : {
+		"method" : "get",
+		"description" : "Get report of hutang",
+		"token" : true,
+		"parameter" : [{
+			"name" : "pc_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by kontrak ID"
+		},{
+			"name" : "po_id",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by PO ID"
+		},{
+			"name" : "date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB date"
+		},{
+			"name" : "supplier_name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by supplier name"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by BPB range date for end date"
+		},{
+			"name" : "export",
+			"type" : "boolean",
+			"required" : true,
+			"description" : "true for export, false to get list"
+		}]
+	},
+	"/purchase/payment" : {
+		"method" : "get",
+		"description" : "Get unpaid PO and PC ",
+		"token" : true,
+		"parameter" : [{
+			"name" : "supplier",
+			"type" : "integer",
+			"required" : true,
+			"description" : "Supplier ID"
+		}]
+	},
+	"/coa/create" : {
+		"method" : "post",
+		"description" : "Create new coa",
+		"token" : true,
+		"parameter" : [{
+			"name" : "code",
+			"type" : "string",
+			"required" : true,
+			"description" : "coa code"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "coa name"
+		}]
+	},
+	"/coa/list" : {
+		"method" : "get",
+		"description" : "Get list coa",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default is null)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default is null)"
+		},{
+			"name" : "code",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by coa code"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : false,
+			"description" : "Filter data by coa name"
+		}]
+	},
+	"/coa/detail" : {
+		"method" : "get",
+		"description" : "Get detail coa",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "int",
+			"required" : true,
+			"description" : "coa id"
+		}]
+	},
+	"/coa/update" : {
+		"method" : "put",
+		"description" : "Update coa data",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "string",
+			"required" : true,
+			"description" : "coa ID"
+		},{
+			"name" : "code",
+			"type" : "string",
+			"required" : true,
+			"description" : "coa code"
+		},{
+			"name" : "name",
+			"type" : "string",
+			"required" : true,
+			"description" : "coa name"
+		}]
+	},
+	"/bkm/create" : {
+		"method" : "post",
+		"description" : "Create bkm",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "string",
+			"required" : true,
+			"description" : "bkm date"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : true,
+			"description" : "filter by type,  value : 1(bbm) | 2(bkm) | 3(bkkm)"
+		},{
+			"name" : "warehouse_code",
+			"type" : "string",
+			"required" : false,
+			"description" : "warehouse_code, value : hm(Pangeran Jayakarta) | cc(Cacing) | sa(Sunter) | tg(Tangerang) | gp(Gunung Putri)"
+		},{
+			"name" : "id_bank_from",
+			"type" : "integer",
+			"required" : false,
+			"description" : "id_bank_from"
+		},{
+			"name" : "id_cust_from",
+			"type" : "integer",
+			"required" : true,
+			"description" : "id_cust_from"
+		},{
+			"name" : "from",
+			"type" : "string",
+			"required" : false,
+			"description" : "bkm_from name"
+		},{
+			"name" : "coa_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "coa_id"
+		},{
+			"name" : "method",
+			"type" : "integer",
+			"required" : true,
+			"description" : "payment method, value : 0:tunai | 1:transfer | 2:cek | 3:giro"
+		},{
+			"name" : "id_bank_to",
+			"type" : "string",
+			"required" : false,
+			"description" : "id_bank_to"
+		},{
+			"name" : "id_cust_to",
+			"type" : "string",
+			"required" : false,
+			"description" : "id_cust_to"
+		},{
+			"name" : "to",
+			"type" : "string",
+			"required" : false,
+			"description" : "bkm_to"
+		},{
+			"name" : "saldo_before",
+			"type" : "string",
+			"required" : false,
+			"description" : "saldo on bank"
+		},{
+			"name" : "total",
+			"type" : "integer",
+			"required" : true,
+			"description" : "total"
+		},{
+			"name" : "note",
+			"type" : "text",
+			"required" : false,
+			"description" : "note"
+		}]
+	},
+	"/bkm/list" : {
+		"method" : "get",
+		"description" : "Get bkm list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default null)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default null)"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : false,
+			"description" : "filter by type,  value : 1(bbm) | 2(bkm) | 3(bkkm)"
+		},{
+			"name" : "co_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "coa id"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for end date"
+		}]
+	},
+	"/bkm/detail" : {
+		"method" : "get",
+		"description" : "Get detail bkm",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "int",
+			"required" : true,
+			"description" : "bkm id"
+		}]
+	},
+	"/report/bkm/mutation" : {
+		"method" : "get",
+		"description" : "Get report bkm mutation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default null)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default null)"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : false,
+			"description" : "filter by type,  value : 1(bbm) | 2(bkm) | 3(bkkm)"
+		},{
+			"name" : "warehouse_code",
+			"type" : "string",
+			"required" : false,
+			"description" : "warehouse_code, value : hm(Pangeran Jayakarta) | cc(Cacing) | sa(Sunter) | tg(Tangerang) | gp(Gunung Putri)"
+		},{
+			"name" : "co_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "coa id"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for end date"
+		},{
+			"name" : "export",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "true for export"
+		}]
+	},
+	"/bkk/list" : {
+		"method" : "get",
+		"description" : "Get bkk list",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default null)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default null)"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : false,
+			"description" : "filter by type,  value : 1(bbk) | 2(bkk) | 3(bkkk)"
+		},{
+			"name" : "co_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "coa id"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for end date"
+		}]
+	},	
+	"/bkk/detail" : {
+		"method" : "get",
+		"description" : "Get detail bkk",
+		"token" : true,
+		"parameter" : [{
+			"name" : "id",
+			"type" : "int",
+			"required" : true,
+			"description" : "bkk id"
+		}]
+	},
+	"/report/bkk/mutation" : {
+		"method" : "get",
+		"description" : "Get report bkk mutation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "limit",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Limit of data (default null)"
+		},{
+			"name" : "offset",
+			"type" : "integer",
+			"required" : false,
+			"description" : "Start of data (default null)"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : false,
+			"description" : "filter by type,  value : 1(bbm) | 2(bkm) | 3(bkkm)"
+		},{
+			"name" : "warehouse_code",
+			"type" : "string",
+			"required" : false,
+			"description" : "warehouse_code, value : hm(Pangeran Jayakarta) | cc(Cacing) | sa(Sunter) | tg(Tangerang) | gp(Gunung Putri)"
+		},{
+			"name" : "co_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "coa id"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for end date"
+		},{
+			"name" : "export",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "true for export"
+		}]
+	},
+	"/report/bkk/mutation" : {
+		"method" : "post",
+		"description" : "Get report bkk mutation",
+		"token" : true,
+		"parameter" : [{
+			"name" : "date",
+			"type" : "string",
+			"required" : true,
+			"description" : "bkk date"
+		},{
+			"name" : "type",
+			"type" : "integer",
+			"required" : true,
+			"description" : "filter by type,  value : 1(bbk) | 2(bkk) | 3(bkkk)"
+		},{
+			"name" : "warehouse_code",
+			"type" : "string",
+			"required" : false,
+			"description" : "warehouse_code, value : hm(Pangeran Jayakarta) | cc(Cacing) | sa(Sunter) | tg(Tangerang) | gp(Gunung Putri)"
+		},{
+			"name" : "coa_id",
+			"type" : "integer",
+			"required" : true,
+			"description" : "coa_id"
+		},{
+			"name" : "s_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for start date"
+		},{
+			"name" : "e_date",
+			"type" : "date",
+			"required" : false,
+			"description" : "Filter data by range date for end date"
+		},{
+			"name" : "export",
+			"type" : "boolean",
+			"required" : false,
+			"description" : "true for export"
+		}]
+	}
+}
