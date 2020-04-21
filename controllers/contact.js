@@ -30,8 +30,6 @@ module.exports._saveContact = function(req, res, next){
     photo : req.body.photo ? req.body.photo : null
   }
 
-  // console.log(param);
-
   if(!util.checkParameters(param)){
     return response.error(res, "miss_param");
   }
@@ -47,7 +45,6 @@ module.exports._detailContact = function(req, res, next){
   var param = {
     id : req.params.contactId
   }
-  console.log(req);
 
   if(!util.checkParameters(param)){
     return response.error(res, "miss_param");

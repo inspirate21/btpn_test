@@ -25,8 +25,6 @@ module.exports.getContactList = function(limit, offset, callback){
 }
 
 module.exports.saveContact = function(param){
-	console.log(param);
-
 	return $model.insert("contact", param);
 }
 

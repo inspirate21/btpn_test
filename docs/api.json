@@ -1,10 +1,10 @@
 {
-	"/contact/" : {
+	"1. /contact" : {
 		"method" : "get",
 		"description" : "Get all contact",
 		"parameter" : []
 	},
-	"/contact/{id}" : {
+	"2. /contact/{id}" : {
 		"method" : "get",
 		"description" : "Get contact by id",
 		"parameter" : [{
@@ -14,7 +14,7 @@
 			"description" : "Contact ID"
 		}]
 	},
-	"/contact" : {
+	"3. /contact2" : {
 		"method" : "post",
 		"description" : "Create New Contact",
 		"parameter" : [{
@@ -39,10 +39,9 @@
 			"description" : "Photo"
 		}]
 	},
-	"/contact/{id}" : {
+	"4. /contact/{id}" : {
 		"method" : "put",
 		"description" : "Edit Contact Data",
-		"token" : true,
 		"parameter" : [{
 			"name" : "id",
 			"type" : "integer",
@@ -70,15 +69,14 @@
 			"description" : "Photo"
 		}]
 	},
-	"/contact" : {
+	"5. /contact" : {
 		"method" : "delete",
 		"description" : "Delete Contact data",
-		"token" : true,
 		"parameter" : [{
 			"name" : "id",
 			"type" : "integer",
 			"required" : true,
 			"description" : "Contact ID"
 		}]
-	},
+	}
 }

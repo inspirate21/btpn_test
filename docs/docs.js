@@ -10,11 +10,5 @@ module.exports = function(req, res, next){
 
 	var api = {};
 
-	Object.keys(config.api).sort().forEach(function(v, i) {
-		api[v] = config.api[v];
-	});
-
-	config.api = api;
-
 	res.render('docs/views/docs', {config : config});
 }
